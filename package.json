@@ -1,0 +1,43 @@
+{
+  "name": "sasl-scram-sha-1",
+  "version": "0.1.0",
+  "description": "JavaScript implementation of SCRAM-SHA-1 SASL mechanism.",
+  "keywords": ["sasl", "auth", "authn", "authentication", "security"],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/legastero/js-sasl-scram-sha-1.git"
+  },
+  "bugs": {
+    "url": "http://github.com/legastero/js-sasl-scram-sha-1/issues"
+  },
+  "author": {
+    "name": "Lance Stout",
+    "email": "lance@andyet.net"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "main",
+  "devDependencies": {
+    "express": "3.x.x",
+    "mocha": "1.x.x",
+    "chai": "1.x.x",
+    "mocha-phantomjs": "1.x.x",
+    "mocha-cloud": "0.0.1",
+    "term-canvas": "0.0.5",
+    "mocha-cloud-grid-view": "0.0.1"
+  },
+ 
+  "engines": { "node": ">= 0.4.0" },
+  "scripts": {
+    "test": "node_modules/.bin/mocha --reporter spec --require test/node/bootstrap test/*.test.js"
+  },
+  "volo": {
+    "dependencies": {
+      "crypto": "github:anchorjs/crypto/master"
+    }
+  }
+}
