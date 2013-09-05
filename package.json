@@ -1,6 +1,6 @@
 {
   "name": "sasl-scram-sha-1",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "JavaScript implementation of SCRAM-SHA-1 SASL mechanism.",
   "keywords": ["sasl", "auth", "authn", "authentication", "security"],
   "repository": {
