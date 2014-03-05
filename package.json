@@ -1,19 +1,39 @@
 {
   "name": "sasl-scram-sha-1",
-  "version": "0.2.1",
   "description": "JavaScript implementation of SCRAM-SHA-1 SASL mechanism.",
-  "keywords": ["sasl", "auth", "authn", "authentication", "security"],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/legastero/js-sasl-scram-sha-1.git"
-  },
-  "bugs": {
-    "url": "http://github.com/legastero/js-sasl-scram-sha-1/issues"
-  },
+  "version": "0.2.1",
   "author": {
     "name": "Lance Stout",
     "email": "lance@andyet.net"
   },
+  "browser": {
+    "crypto": "crypto-browserify"
+  },
+  "bugs": {
+    "url": "http://github.com/legastero/js-sasl-scram-sha-1/issues"
+  },
+  "dependencies": {
+    "crypto-browserify": "1.0.3"
+  },
+  "devDependencies": {
+    "chai": "1.x.x",
+    "express": "3.x.x",
+    "mocha": "1.x.x",
+    "mocha-cloud": "0.0.1",
+    "mocha-cloud-grid-view": "0.0.1",
+    "mocha-phantomjs": "1.x.x",
+    "term-canvas": "0.0.5"
+  },
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "keywords": [
+    "sasl",
+    "auth",
+    "authn",
+    "authentication",
+    "security"
+  ],
   "licenses": [
     {
       "type": "MIT",
@@ -21,17 +41,10 @@
     }
   ],
   "main": "main",
-  "devDependencies": {
-    "express": "3.x.x",
-    "mocha": "1.x.x",
-    "chai": "1.x.x",
-    "mocha-phantomjs": "1.x.x",
-    "mocha-cloud": "0.0.1",
-    "term-canvas": "0.0.5",
-    "mocha-cloud-grid-view": "0.0.1"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/legastero/js-sasl-scram-sha-1.git"
   },
- 
-  "engines": { "node": ">= 0.4.0" },
   "scripts": {
     "test": "node_modules/.bin/mocha --reporter spec --require test/node/bootstrap test/*.test.js"
   },
