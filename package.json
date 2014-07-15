@@ -1,31 +1,18 @@
 {
   "name": "sasl-scram-sha-1",
   "description": "JavaScript implementation of SCRAM-SHA-1 SASL mechanism.",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "author": {
     "name": "Lance Stout",
     "email": "lance@andyet.net"
   },
-  "browser": {
-    "crypto": "crypto-browserify"
-  },
   "bugs": {
     "url": "http://github.com/legastero/js-sasl-scram-sha-1/issues"
   },
-  "dependencies": {
-    "crypto-browserify": "1.0.3"
-  },
   "devDependencies": {
-    "chai": "1.x.x",
-    "express": "3.x.x",
-    "mocha": "1.x.x",
-    "mocha-cloud": "0.0.1",
-    "mocha-cloud-grid-view": "0.0.1",
-    "mocha-phantomjs": "1.x.x",
-    "term-canvas": "0.0.5"
-  },
-  "engines": {
-    "node": ">= 0.4.0"
+    "tape": "",
+    "bitwise-xor": "",
+    "precommit-hook": ""
   },
   "keywords": [
     "sasl",
@@ -34,23 +21,30 @@
     "authentication",
     "security"
   ],
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/MIT"
-    }
-  ],
-  "main": "main",
+  "license": "MIT",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/legastero/js-sasl-scram-sha-1.git"
   },
   "scripts": {
-    "test": "node_modules/.bin/mocha --reporter spec --require test/node/bootstrap test/*.test.js"
+    "test": "node test/index.js"
   },
-  "volo": {
-    "dependencies": {
-      "crypto": "github:anchorjs/crypto/master"
-    }
+  "testling": {
+    "files": [
+      "test/index.js"
+    ],
+    "browsers": [
+      "ie/10..latest",
+      "chrome/20..latest",
+      "chrome/canary",
+      "firefox/10..latest",
+      "firefox/nightly",
+      "opera/next",
+      "safari/6..latest",
+      "iphone/6..latest",
+      "ipad/6..latest",
+      "android-browser/4.2..latest"
+    ]
   }
 }
