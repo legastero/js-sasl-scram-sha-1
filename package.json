@@ -9,10 +9,12 @@
   "bugs": {
     "url": "http://github.com/legastero/js-sasl-scram-sha-1/issues"
   },
+  "dependencies": {
+    "bitwise-xor": "0.0.0"
+  },
   "devDependencies": {
-    "tape": "",
-    "bitwise-xor": "",
-    "precommit-hook": ""
+    "tape": "^2.13.3",
+    "precommit-hook": "^1.0.2"
   },
   "keywords": [
     "sasl",
