@@ -25,7 +25,7 @@ Mechanism.prototype.response = function (cred) {
 Mechanism.prototype.challenge = function (chal) {
     var values = utils.parse(chal);
 
-    this._salt = new Buffer(values.s || '', 'base64').toString('binary');
+    this._salt = new Buffer(values.s || '', 'base64');
     this._iterationCount = parseInt(values.i, 10);
     this._nonce = values.r;
     this._verifier = values.v;
@@ -79,9 +79,7 @@ RESP.challenge = function (mech, cred) {
                       mech._clientFinalMessageWithoutProof;
     var clientSignature = bitops.HMAC(storedKey, authMessage);
 
-    var xorstuff = bitops.XOR(clientKey, clientSignature);
-
-    var clientProof = new Buffer(xorstuff, 'binary').toString('base64');
+    var clientProof = bitops.XOR(clientKey, clientSignature).toString('base64');
 
     mech._serverSignature = bitops.HMAC(serverKey, authMessage);
 
