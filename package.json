@@ -1,7 +1,7 @@
 {
   "name": "sasl-scram-sha-1",
   "description": "JavaScript implementation of SCRAM-SHA-1 SASL mechanism.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": {
     "name": "Lance Stout",
     "email": "lance@andyet.net"
