@@ -10,7 +10,10 @@
     "url": "http://github.com/legastero/js-sasl-scram-sha-1/issues"
   },
   "dependencies": {
-    "bitwise-xor": "0.0.0"
+    "bitwise-xor": "0.0.0",
+    "create-hash": "^1.1.0",
+    "create-hmac": "^1.1.3",
+    "randombytes": "^2.0.1"
   },
   "devDependencies": {
     "tape": "^2.13.3",
