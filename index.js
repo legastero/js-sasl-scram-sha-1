@@ -2,6 +2,8 @@ var bitops = require('./lib/bitops');
 var utils = require('./lib/utils');
 
 var RESP = {};
+var CLIENT_KEY = 'Client Key';
+var SERVER_KEY = 'Server Key';
 
 
 function Mechanism(options) {
@@ -47,7 +49,7 @@ RESP.initial = function (mech, cred) {
     mech._gs2Header = 'n,' + authzid + ',';
 
     var nonce = 'r=' + mech._cnonce;
-    var username = 'n=' + utils.saslname(cred.username);
+    var username = 'n=' + utils.saslname(cred.username || '');
 
     mech._clientFirstMessageBare = username + ',' + nonce;
     var result = mech._gs2Header + mech._clientFirstMessageBare;
@@ -64,13 +66,22 @@ RESP.challenge = function (mech, cred) {
     mech._clientFinalMessageWithoutProof = 'c=' + gs2Header + ',r=' + mech._nonce;
 
     var saltedPassword, clientKey, serverKey;
-    if (cred.clientKey && cred.serverKey) {
-        clientKey = cred.clientKey;
-        serverKey = cred.serverKey;
+
+    // If our cached salt is the same, we can reuse cached credentials to speed
+    // up the hashing process.
+    if (cred.salt && Buffer.compare(cred.salt, mech._salt) === 0) {
+        if (cred.clientKey && cred.serverKey) {
+            clientKey = cred.clientKey;
+            serverKey = cred.serverKey;
+        } else if (cred.saltedPassword) {
+            saltedPassword = cred.saltedPassword;
+            clientKey = bitops.HMAC(saltedPassword, CLIENT_KEY);
+            serverKey = bitops.HMAC(saltedPassword, SERVER_KEY);
+        }
     } else {
-        saltedPassword = cred.saltedPassword || bitops.Hi(cred.password, mech._salt, mech._iterationCount);
-        clientKey = bitops.HMAC(saltedPassword, 'Client Key');
-        serverKey = bitops.HMAC(saltedPassword, 'Server Key');
+        saltedPassword = bitops.Hi(cred.password || '', mech._salt, mech._iterationCount);
+        clientKey = bitops.HMAC(saltedPassword, CLIENT_KEY);
+        serverKey = bitops.HMAC(saltedPassword, SERVER_KEY);
     }
 
     var storedKey = bitops.H(clientKey);
@@ -88,6 +99,7 @@ RESP.challenge = function (mech, cred) {
     mech._stage = 'final';
 
     mech.cache = {
+        salt: mech._salt,
         saltedPassword: saltedPassword,
         clientKey: clientKey,
         serverKey: serverKey
