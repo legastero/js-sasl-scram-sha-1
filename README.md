@@ -1,10 +1,10 @@
 # SASL : SCRAM-SHA-1
 
-[![Build Status](https://travis-ci.org/otalk/xmpp-uri.png)](https://travis-ci.org/otalk/xmpp-uri)
-[![Dependency Status](https://david-dm.org/otalk/xmpp-uri.png)](https://david-dm.org/otalk/xmpp-uri)
-[![devDependency Status](https://david-dm.org/otalk/xmpp-uri/dev-status.png)](https://david-dm.org/otalk/xmpp-uri#info=devDependencies)
+[![Build Status](https://travis-ci.org/legastero/js-sasl-scram-sha-1.png)](https://travis-ci.org/legastero/js-sasl-scram-sha-1)
+[![Dependency Status](https://david-dm.org/legastero/js-sasl-scram-sha-1.png)](https://david-dm.org/legastero/js-sasl-scram-sha-1)
+[![devDependency Status](https://david-dm.org/legastero/js-sasl-scram-sha-1.png)](https://david-dm.org/legastero/js-sasl-scram-sha-1#info=devDependencies)
 
-[![Browser Support](https://ci.testling.com/otalk/xmpp-uri.png)](https://ci.testling.com/otalk/xmpp-uri)
+[![Browser Support](https://ci.testling.com/legastero/js-sasl-scram-sha-1.png)](https://ci.testling.com/legastero/js-sasl-scram-sha-1)
 
 
 This module is a JavaScript implementation of the SCRAM-SHA-1 SASL mechanism,
